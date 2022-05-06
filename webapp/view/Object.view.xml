@@ -1,0 +1,47 @@
+<mvc:View
+    controllerName="categories.controller.Object"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:semantic="sap.f.semantic">
+
+    <semantic:SemanticPage
+        id="page"
+        headerPinnable="false"
+        toggleHeaderOnTitleClick="false"
+        busy="{objectView>/busy}"
+        busyIndicatorDelay="{objectView>/delay}">
+
+        <semantic:titleHeading>
+            <Title
+                text="{ID}"
+                level="H2"/>
+        </semantic:titleHeading>
+
+        <semantic:headerContent>
+            <ObjectNumber />
+        </semantic:headerContent>
+
+        <semantic:sendEmailAction>
+            <semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
+        </semantic:sendEmailAction>
+
+        <semantic:content>
+            <Panel>
+                <VBox>
+                    <Label text="{i18n>labelId}"/>
+                    <Input value="{objectModel>/idValue}" editable="{objectModel>/idEditable}" width="200px"/>
+                    <Label text="{i18n>labelName}"/>
+                    <Input value="{objectModel>/nameValue}" editable="{objectModel>/nameEditable}" width="200px"/>
+
+                    <Button visible="{objectModel>/btnCriarVisible}" text="{i18n>btnCriar}" press="onCriar"/>
+                    <Button visible="{objectModel>/btnEditarVisible}" text="{i18n>btnEditar}" press="onEditar"/>
+                    <Button visible="{objectModel>/btnSalvarVisible}" text="{i18n>btnSalvar}" press="onSalvar"/>
+                    <Button visible="{objectModel>/btnExcluirVisible}" text="{i18n>btnExcluir}" press="onExcluir"/>
+                </VBox>
+            </Panel>
+        
+        </semantic:content>
+
+    </semantic:SemanticPage>
+
+</mvc:View>
